@@ -4,6 +4,8 @@ import (
 	"bytes"
 	"errors"
 	"time"
+
+	"github.com/alinz/hash.go"
 )
 
 var (
@@ -41,7 +43,7 @@ func (c *Certificate) Verify(ca *Certificate) error {
 		return err
 	}
 
-	if !ca.Details.PublicKey.Verify(hashSHA256(b), c.Signature) {
+	if !ca.Details.PublicKey.Verify(hash.Bytes(b), c.Signature) {
 		return ErrFailedVerifyCertificate
 	}
 
@@ -158,7 +160,7 @@ func CreateCertificate(parentPrivateKey *PrivateKey, parentCertificate *Certific
 		signKey = private
 	}
 
-	signature, err := signKey.Sign(hashSHA256(b))
+	signature, err := signKey.Sign(hash.Bytes(b))
 	if err != nil {
 		return nil, nil, err
 	}
