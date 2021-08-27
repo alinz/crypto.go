@@ -24,7 +24,7 @@ func (c ChaCha20) prepareKey(key []byte) (cipher.AEAD, int, error) {
 	return aead, aead.NonceSize(), nil
 }
 
-func (c ChaCha20) secureRandom(value []byte) error {
+func secureRandom(value []byte) error {
 	_, err := rand.Read(value)
 	if err != nil {
 		return err
@@ -41,7 +41,7 @@ func (c ChaCha20) Encrypt(data []byte, key []byte) ([]byte, error) {
 
 	// Select a random nonce, and leave capacity for the ciphertext.
 	nonce := make([]byte, nonceSize, nonceSize+len(data)+aead.Overhead())
-	if err = c.secureRandom(nonce); err != nil {
+	if err = secureRandom(nonce); err != nil {
 		return nil, err
 	}
 
