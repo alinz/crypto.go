@@ -11,6 +11,8 @@ import (
 var (
 	// ErrChiperTextTooShort if content length is too short for decoding
 	ErrChiperTextTooShort = errors.New("ciphertext too short")
+	// ErrWrongKey is returns when decrypting content is failing
+	ErrWrongKey = errors.New("wrong key")
 )
 
 // ChaCha20 enecryption type
@@ -66,6 +68,9 @@ func (c ChaCha20) Decrypt(data []byte, key []byte) ([]byte, error) {
 	// Decrypt the message and check it wasn't tampered with.
 	plaintext, err := aead.Open(nil, nonce, ciphertext, nil)
 	if err != nil {
+		if err.Error() == "chacha20poly1305: message authentication failed" {
+			return nil, ErrWrongKey
+		}
 		return nil, err
 	}
 

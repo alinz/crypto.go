@@ -33,6 +33,7 @@ func TestChaCha20(t *testing.T) {
 
 		decryptedtext, err := chacha20.Decrypt(ciphertext, key)
 		assert.NotNil(t, err)
+		assert.Equal(t, crypto.ErrWrongKey, err)
 		assert.NotEqual(t, decryptedtext, plaintext, "decrypted should not be the same as plaintext")
 	})
 }
