@@ -26,6 +26,13 @@ func (cs *ChaCha20Stream) Read(p []byte) (int, error) {
 	return n, nil
 }
 
+func (cs *ChaCha20Stream) Close() error {
+	if rc, ok := cs.source.(io.ReadCloser); ok {
+		return rc.Close()
+	}
+	return nil
+}
+
 func NewChaCha20Stream(r io.Reader, key []byte) (*ChaCha20Stream, error) {
 	nonce := make([]byte, 24)
 
