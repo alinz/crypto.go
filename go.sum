@@ -1,5 +1,7 @@
 github.com/alinz/hash.go v0.0.0-20210826155239-e949304132fd h1:PzNl7pQyNta+Q191BmQFjGgtYpKI0KCzs139tBp0P9w=
 github.com/alinz/hash.go v0.0.0-20210826155239-e949304132fd/go.mod h1:uRSiRmHsffw1dpzfC2QufUZ4AcB4I+etV/wg4pZcfm4=
+github.com/alinz/hash.go v0.0.0-20211013151738-120d1a5878e0 h1:e6Y5yY29yTEz8PnR04gxDYX0VKHOFtQHfFekxvxLzDE=
+github.com/alinz/hash.go v0.0.0-20211013151738-120d1a5878e0/go.mod h1:uRSiRmHsffw1dpzfC2QufUZ4AcB4I+etV/wg4pZcfm4=
 github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
